@@ -1,0 +1,9 @@
+.shieldclimbcryptogateway-payment-method-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.shieldclimbcryptogateway-payment-method-wrapper img {
+    display: flex;
+    width: 100%;
+}
