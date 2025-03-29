@@ -3,9 +3,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-add_action('plugins_loaded', 'init_shieldclimbcryptogateway_oneinchbep20_gateway');
+add_action('plugins_loaded', 'shieldclimbcryptogateway_oneinchbep20_gateway');
 
-function init_shieldclimbcryptogateway_oneinchbep20_gateway() {
+function shieldclimbcryptogateway_oneinchbep20_gateway() {
     if (!class_exists('WC_Payment_Gateway')) {
         return;
     }
@@ -344,105 +344,137 @@ function shieldclimb_add_instant_payment_gateway_oneinchbep20($gateways) {
 add_filter('woocommerce_payment_gateways', 'shieldclimb_add_instant_payment_gateway_oneinchbep20');
 }
 
-// Add custom endpoint for reading crypto payment status
+// Custom permission callback for order status check endpoint
+function shieldclimbcryptogateway_check_order_status_permission($request) {
+    $order_id = absint($request->get_param('order_id'));
+    $nonce = sanitize_text_field($request->get_param('nonce'));
 
-   function shieldclimbcryptogateway_oneinchbep20_check_order_status_rest_endpoint() {
-        register_rest_route('shieldclimbcryptogateway/v1', '/shieldclimbcryptogateway-check-order-status-oneinchbep20/', array(
-            'methods'  => 'GET',
-            'callback' => 'shieldclimbcryptogateway_oneinchbep20_check_order_status_callback',
-            'permission_callback' => '__return_true',
-        ));
+    if (empty($order_id) || empty($nonce)) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Missing order or nonce parameter.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 403)
+        );
     }
 
-    add_action('rest_api_init', 'shieldclimbcryptogateway_oneinchbep20_check_order_status_rest_endpoint');
-
-    function shieldclimbcryptogateway_oneinchbep20_check_order_status_callback($request) {
-        $order_id = absint($request->get_param('order_id'));
-		$shieldclimbcryptogateway_oneinchbep20_live_status_nonce = sanitize_text_field($request->get_param('nonce'));
-
-        if (empty($order_id)) {
-            return new WP_Error('missing_order_id', __('Order ID parameter is missing.', 'shieldclimb-crypto-payment-gateway'), array('status' => 400));
-        }
-
-        $order = wc_get_order($order_id);
-
-        if (!$order) {
-            return new WP_Error('invalid_order', __('Invalid order ID.', 'shieldclimb-crypto-payment-gateway'), array('status' => 404));
-        }
-		
-		// Verify stored status nonce
-
-        if ( empty( $shieldclimbcryptogateway_oneinchbep20_live_status_nonce ) || $order->get_meta('shieldclimb_oneinchbep20_status_nonce', true) !== $shieldclimbcryptogateway_oneinchbep20_live_status_nonce ) {
-        return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'shieldclimb-crypto-payment-gateway' ), array( 'status' => 403 ) );
-    }
-        return array('status' => $order->get_status());
+    $order = wc_get_order($order_id);
+    if (!$order) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Order not found.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 404)
+        );
     }
 
-// Add custom endpoint for changing order status
-function shieldclimbcryptogateway_oneinchbep20_change_order_status_rest_endpoint() {
-    // Register custom route
-    register_rest_route( 'shieldclimbcryptogateway/v1', '/shieldclimbcryptogateway-oneinchbep20/', array(
+    if ($order->get_meta('shieldclimb_oneinchbep20_status_nonce', true) !== $nonce) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Invalid nonce.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 403)
+        );
+    }
+
+    return true;
+}
+
+// Custom permission callback for order status change endpoint
+function shieldclimbcryptogateway_change_order_status_permission($request) {
+    $order_id = absint($request->get_param('order_id'));
+    $nonce = sanitize_text_field($request->get_param('nonce'));
+
+    if (empty($order_id) || empty($nonce)) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Missing order or nonce parameter.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 403)
+        );
+    }
+
+    $order = wc_get_order($order_id);
+    if (!$order) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Order not found.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 404)
+        );
+    }
+
+    if ($order->get_meta('shieldclimb_oneinchbep20_nonce', true) !== $nonce) {
+        return new WP_Error(
+            'rest_forbidden',
+            __('Invalid nonce.', 'shieldclimb-crypto-payment-gateway'),
+            array('status' => 403)
+        );
+    }
+
+    return true;
+}
+
+// Update REST endpoint registration for status check
+function shieldclimbcryptogateway_oneinchbep20_check_order_status_rest_endpoint() {
+    register_rest_route('shieldclimbcryptogateway/v1', '/shieldclimbcryptogateway-check-order-status-oneinchbep20/', array(
         'methods'  => 'GET',
-        'callback' => 'shieldclimbcryptogateway_oneinchbep20_change_order_status_callback',
-        'permission_callback' => '__return_true',
+        'callback' => 'shieldclimbcryptogateway_oneinchbep20_check_order_status_callback',
+        'permission_callback' => 'shieldclimbcryptogateway_check_order_status_permission',
     ));
 }
-add_action( 'rest_api_init', 'shieldclimbcryptogateway_oneinchbep20_change_order_status_rest_endpoint' );
+add_action('rest_api_init', 'shieldclimbcryptogateway_oneinchbep20_check_order_status_rest_endpoint');
 
-// Callback function to change order status
-function shieldclimbcryptogateway_oneinchbep20_change_order_status_callback( $request ) {
-    $order_id = absint($request->get_param( 'order_id' ));
-	$shieldclimbcryptogateway_oneinchbep20getnonce = sanitize_text_field($request->get_param( 'nonce' ));
-	$shieldclimbcryptogateway_oneinchbep20paid_value_coin = sanitize_text_field($request->get_param('value_coin'));
-	$shieldclimbcryptogateway_oneinchbep20_paid_coin_name = sanitize_text_field($request->get_param('coin'));
-	$shieldclimbcryptogateway_oneinchbep20_paid_txid_in = sanitize_text_field($request->get_param('txid_in'));
+// Update REST endpoint registration for status change
+function shieldclimbcryptogateway_oneinchbep20_change_order_status_rest_endpoint() {
+    register_rest_route('shieldclimbcryptogateway/v1', '/shieldclimbcryptogateway-oneinchbep20/', array(
+        'methods'  => 'GET',
+        'callback' => 'shieldclimbcryptogateway_oneinchbep20_change_order_status_callback',
+        'permission_callback' => 'shieldclimbcryptogateway_change_order_status_permission',
+    ));
+}
+add_action('rest_api_init', 'shieldclimbcryptogateway_oneinchbep20_change_order_status_rest_endpoint');
 
-    // Check if order ID parameter exists
-    if ( empty( $order_id ) ) {
-        return new WP_Error( 'missing_order_id', __( 'Order ID parameter is missing.', 'shieldclimb-crypto-payment-gateway' ), array( 'status' => 400 ) );
+// Simplified status check callback
+function shieldclimbcryptogateway_oneinchbep20_check_order_status_callback($request) {
+    $order_id = absint($request->get_param('order_id'));
+    $order = wc_get_order($order_id);
+    return array('status' => $order->get_status());
+}
+
+// Simplified status change callback
+function shieldclimbcryptogateway_oneinchbep20_change_order_status_callback($request) {
+    $order_id = absint($request->get_param('order_id'));
+    $order = wc_get_order($order_id);
+    
+    $paid_value_coin = (float)sanitize_text_field($request->get_param('value_coin'));
+    $paid_coin_name = sanitize_text_field($request->get_param('coin'));
+    $paid_txid_in = sanitize_text_field($request->get_param('txid_in'));
+
+    $expected_amount = $order->get_meta('shieldclimb_oneinchbep20_payin_amount', true) * 
+                      $order->get_meta('shieldclimb_oneinchbep20_tolerance_percentage', true);
+
+    if (!in_array($order->get_status(), ['processing', 'completed'], true) && 
+        'shieldclimb-crypto-payment-gateway-oneinchbep20' === $order->get_payment_method()) {
+        
+        if ($paid_value_coin < $expected_amount || $paid_coin_name !== 'bep20_1inch') {
+            /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */	
+            $order->update_status('failed', sprintf(
+                __('[Order Failed] Customer sent %1$s %2$s instead of %3$s bep20_1inch. TXID: %4$s', 'shieldclimb-crypto-payment-gateway'),
+                $paid_value_coin,
+                $paid_coin_name,
+                $expected_amount,
+                $paid_txid_in
+            ));
+            return array('message' => 'Order status changed to failed due to partial payment or incorrect coin. Please check order notes ');
+        }
+
+        $order->payment_complete();
+        /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
+        $order->add_order_note(sprintf(
+            __('[Payment completed] Customer sent %1$s %2$s TXID:%3$s', 'shieldclimb-crypto-payment-gateway'),
+            $paid_value_coin,
+            $paid_coin_name,
+            $paid_txid_in
+        ));
+        return array('message' => 'Payment confirmed and order status changed');
     }
 
-    // Get order object
-    $order = wc_get_order( $order_id );
-
-    // Check if order exists
-    if ( ! $order ) {
-        return new WP_Error( 'invalid_order', __( 'Invalid order ID.', 'shieldclimb-crypto-payment-gateway' ), array( 'status' => 404 ) );
-    }
-	
-	// Verify nonce
-    if ( empty( $shieldclimbcryptogateway_oneinchbep20getnonce ) || $order->get_meta('shieldclimb_oneinchbep20_nonce', true) !== $shieldclimbcryptogateway_oneinchbep20getnonce ) {
-        return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'shieldclimb-crypto-payment-gateway' ), array( 'status' => 403 ) );
-    }
-
-    // Check if the order is pending and payment method is 'shieldclimb-crypto-payment-gateway-oneinchbep20'
-    if ( $order && !in_array($order->get_status(), ['processing', 'completed'], true) && 'shieldclimb-crypto-payment-gateway-oneinchbep20' === $order->get_payment_method() ) {
-		
-		// Get the expected amount and coin
-	$shieldclimbcryptogateway_oneinchbep20expected_amount = $order->get_meta('shieldclimb_oneinchbep20_payin_amount', true) * $order->get_meta('shieldclimb_oneinchbep20_tolerance_percentage', true);
-
-	
-		if ( $shieldclimbcryptogateway_oneinchbep20paid_value_coin < $shieldclimbcryptogateway_oneinchbep20expected_amount || $shieldclimbcryptogateway_oneinchbep20_paid_coin_name !== 'bep20_1inch') {
-			// Mark the order as failed and add an order note
-/* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */			
-$order->update_status('failed', sprintf(__( '[Order Failed] Customer sent %1$s %2$s instead of %3$s bep20_1inch. TXID: %4$s', 'shieldclimb-crypto-payment-gateway' ), $shieldclimbcryptogateway_oneinchbep20paid_value_coin, $shieldclimbcryptogateway_oneinchbep20_paid_coin_name, $shieldclimbcryptogateway_oneinchbep20expected_amount, $shieldclimbcryptogateway_oneinchbep20_paid_txid_in));
-/* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */
-$order->add_order_note(sprintf( __( '[Order Failed] Customer sent %1$s %2$s instead of %3$s bep20_1inch. TXID: %4$s', 'shieldclimb-crypto-payment-gateway' ), $shieldclimbcryptogateway_oneinchbep20paid_value_coin, $shieldclimbcryptogateway_oneinchbep20_paid_coin_name, $shieldclimbcryptogateway_oneinchbep20expected_amount, $shieldclimbcryptogateway_oneinchbep20_paid_txid_in));
-            return array( 'message' => 'Order status changed to failed due to partial payment or incorrect coin. Please check order notes' );
-			
-		} else {
-        // Change order status to processing
-		$order->payment_complete();
-
-
-// Return success response
-/* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
-$order->add_order_note(sprintf( __( '[Payment completed] Customer sent %1$s %2$s TXID:%3$s', 'shieldclimb-crypto-payment-gateway' ), $shieldclimbcryptogateway_oneinchbep20paid_value_coin, $shieldclimbcryptogateway_oneinchbep20_paid_coin_name, $shieldclimbcryptogateway_oneinchbep20_paid_txid_in));
-        return array( 'message' => 'Payment confirmed and order status changed.' );
-		}
-    } else {
-        // Return error response if conditions are not met
-        return new WP_Error( 'order_not_eligible', __( 'Order is not eligible for status change.', 'shieldclimb-crypto-payment-gateway' ), array( 'status' => 400 ) );
-    }
+    return new WP_Error('order_not_eligible', __('Order is not eligible for status change.', 'shieldclimb-crypto-payment-gateway'), array('status' => 400));
 }
 ?>

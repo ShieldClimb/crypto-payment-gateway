@@ -3,7 +3,7 @@ Contributors: shieldclimb
 Donate link: https://shieldclimb.com/
 Tags: woocommerce, crypto, payment, gateway, instant payouts
 Requires at least: 5.8
-Tested up to: 6.7.2
+Tested up to: 6.7
 Stable tag: 1.0.0
 Requires PHP: 7.2
 WC requires at least: 5.8
@@ -40,7 +40,30 @@ Why choose ShieldClimb’s Crypto Payment Gateway?
 * Low Fees – 2% flat rate + blockchain transaction fees.
 * Track Transactions in WP-Admin – View TXIDs and payouts within WooCommerce.
 * Borderless Payments – Accept crypto globally without restrictions.
-* The plugin and offered service through [shieldclimb.com Crypto Payment Gateway API](https://shieldclimb.com/crypto-payment-gateway/) is subject to the [service terms](https://shieldclimb.com/terms-of-service/) and [Privacy Policy](https://shieldclimb.com/privacy-policy/).
+
+The plugin and offered service through [shieldclimb.com Crypto Payment Gateway API](https://shieldclimb.com/) is subject to the [service terms](https://shieldclimb.com/terms-of-service/) and [Privacy Policy](https://shieldclimb.com/privacy-policy/).
+
+== Coingecko API - Third-Party Service Documentation ==
+
+This plugin integrates the [Coingecko API](https://www.coingecko.com/) to fetch cryptocurrency exchange rates, ensuring that payment options are accurately hidden below the correct minimum threshold.
+
+It is subject to the [service terms](https://www.coingecko.com/en/terms) and [Privacy Policy](https://www.coingecko.com/en/privacy).
+
+== Frankfurter API - Third-Party Service Documentation ==
+
+This plugin integrates the [Frankfurter API](https://frankfurter.dev/) to fetch exchange rates, ensuring that payment options are accurately hidden below the correct minimum threshold across stores with different currencies.
+
+= Terms of Service & Privacy Policy =
+
+* The Frankfurter API does not have official Terms of Service or a standalone Privacy Policy.
+* According to their website, the API does not collect personal data, but it runs behind Cloudflare for performance, which may collect basic analytics data.
+* More details can be found on their website: https://frankfurter.dev/
+
+= Data Usage & Processing =
+
+* This plugin does not send any personal user data to the [Frankfurter API](https://frankfurter.dev/).
+* Only currency codes and requested exchange rates are sent in API requests.
+* All data comes from the European Central Bank, and the API provides it as-is.
 
 == Installation ==
 

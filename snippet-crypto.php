@@ -1,6 +1,6 @@
 <?php
-add_filter('woocommerce_available_payment_gateways', 'show_hide_crypto_payment_methods');
-function show_hide_crypto_payment_methods($available_gateways) {
+add_filter('woocommerce_available_payment_gateways', 'shieldclimbgateway_hide_crypto_payment_methods');
+function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
     // Run only on checkout or order pay page
     if (!(is_checkout() || is_checkout_pay_page())) {
         return $available_gateways;
@@ -84,7 +84,7 @@ function convert_currency_to_usd($amount, $currency) {
     $rate = get_transient($transient_key);
 
     if (false === $rate) {
-        $response = wp_remote_get('https://api.frankfurter.app/latest?from=' . $currency . '&to=USD');
+        $response = wp_remote_get('https://api.frankfurter.dev/latest?from=' . $currency . '&to=USD');
         if (!is_wp_error($response)) {
             $data = json_decode(wp_remote_retrieve_body($response), true);
             if (isset($data['rates']['USD'])) {
