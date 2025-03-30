@@ -125,8 +125,7 @@ protected $icon_url;
 		$shieldclimbcryptogateway_ltc_callback = add_query_arg(array('order_id' => $order_id, 'nonce' => $shieldclimbcryptogateway_ltc_nonce,), rest_url('shieldclimbcryptogateway/v1/shieldclimbcryptogateway-ltc/'));
 		$shieldclimbcryptogateway_ltc_email = urlencode(sanitize_email($order->get_billing_email()));
 		$shieldclimbcryptogateway_ltc_status_nonce = wp_create_nonce( 'shieldclimbcryptogateway_ltc_status_nonce_' . $shieldclimbcryptogateway_ltc_email );
-
-		
+	
 $shieldclimbcryptogateway_ltc_response = wp_remote_get('https://apicrypto.shieldclimb.com/crypto/ltc/convert.php?value=' . $shieldclimbcryptogateway_ltc_total . '&from=' . strtolower($shieldclimbcryptogateway_ltc_currency), array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_ltc_response)) {
@@ -261,7 +260,6 @@ if ($shieldclimbcryptogateway_ltc_genqrcode_conversion_resp && isset($shieldclim
 }	
 		}
 		
-		
 		// Save $ltcresponse in order meta data
     $order->add_meta_data('shieldclimb_ltc_payin_address', $shieldclimbcryptogateway_ltc_gen_addressIn, true);
     $order->add_meta_data('shieldclimb_ltc_ipntoken', $shieldclimbcryptogateway_ltc_gen_ipntoken, true);
@@ -329,8 +327,6 @@ public function before_thankyou_page($order_id) {
     wp_enqueue_script('shieldclimbcryptogateway-check-status', plugin_dir_url(__DIR__) . 'assets/js/shieldclimbcryptogateway-payment-status-check.js?order_id=' . esc_attr($order_id) . '&nonce=' . esc_attr($shieldclimbgateway_crypto_qrcode_status_nonce) . '&tickerstring=ltc', array('jquery'), '1.0.0', true);
 
 }
-
-
 
 public function shieldclimb_crypto_payment_gateway_get_icon_url() {
         return !empty($this->icon) ? esc_url($this->icon) : '';
@@ -458,8 +454,8 @@ function shieldclimbcryptogateway_ltc_change_order_status_callback($request) {
                          * (float)$order->get_meta('shieldclimb_ltc_tolerance_percentage', true);
 
         if ($paid_value_coin < $expected_amount || $paid_coin_name !== 'ltc') {
-            /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */
             $note = sprintf(
+                /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */
                 __('[Order Failed] Customer sent %1$s %2$s instead of %3$s ltc. TXID: %4$s', 'shieldclimb-crypto-payment-gateway'),
                 $paid_value_coin,
                 $paid_coin_name,
@@ -472,8 +468,8 @@ function shieldclimbcryptogateway_ltc_change_order_status_callback($request) {
         }
 
         $order->payment_complete();
-        /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
         $order->add_order_note(sprintf(
+            /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
             __('[Payment completed] Customer sent %1$s %2$s TXID:%3$s', 'shieldclimb-crypto-payment-gateway'),
             $paid_value_coin,
             $paid_coin_name,

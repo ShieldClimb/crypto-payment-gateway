@@ -125,8 +125,7 @@ protected $icon_url;
 		$shieldclimbcryptogateway_shibbep20_callback = add_query_arg(array('order_id' => $order_id, 'nonce' => $shieldclimbcryptogateway_shibbep20_nonce,), rest_url('shieldclimbcryptogateway/v1/shieldclimbcryptogateway-shibbep20/'));
 		$shieldclimbcryptogateway_shibbep20_email = urlencode(sanitize_email($order->get_billing_email()));
 		$shieldclimbcryptogateway_shibbep20_status_nonce = wp_create_nonce( 'shieldclimbcryptogateway_shibbep20_status_nonce_' . $shieldclimbcryptogateway_shibbep20_email );
-
-		
+	
 $shieldclimbcryptogateway_shibbep20_response = wp_remote_get('https://apicrypto.shieldclimb.com/crypto/bep20/shib/convert.php?value=' . $shieldclimbcryptogateway_shibbep20_total . '&from=' . strtolower($shieldclimbcryptogateway_shibbep20_currency), array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_shibbep20_response)) {
@@ -261,7 +260,6 @@ if ($shieldclimbcryptogateway_shibbep20_genqrcode_conversion_resp && isset($shie
 }	
 		}
 		
-		
 		// Save $shibbep20response in order meta data
     $order->add_meta_data('shieldclimb_shibbep20_payin_address', $shieldclimbcryptogateway_shibbep20_gen_addressIn, true);
     $order->add_meta_data('shieldclimb_shibbep20_ipntoken', $shieldclimbcryptogateway_shibbep20_gen_ipntoken, true);
@@ -329,8 +327,6 @@ public function before_thankyou_page($order_id) {
     wp_enqueue_script('shieldclimbcryptogateway-check-status', plugin_dir_url(__DIR__) . 'assets/js/shieldclimbcryptogateway-payment-status-check.js?order_id=' . esc_attr($order_id) . '&nonce=' . esc_attr($shieldclimbgateway_crypto_qrcode_status_nonce) . '&tickerstring=shibbep20', array('jquery'), '1.0.0', true);
 
 }
-
-
 
 public function shieldclimb_crypto_payment_gateway_get_icon_url() {
         return !empty($this->icon) ? esc_url($this->icon) : '';
@@ -458,8 +454,8 @@ function shieldclimbcryptogateway_shibbep20_change_order_status_callback($reques
                          * (float)$order->get_meta('shieldclimb_shibbep20_tolerance_percentage', true);
 
         if ($paid_value_coin < $expected_amount || $paid_coin_name !== 'bep20_shib') {
-            /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */
             $note = sprintf(
+                /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Expected amount, 4: Transaction ID */
                 __('[Order Failed] Customer sent %1$s %2$s instead of %3$s bep20_shib. TXID: %4$s', 'shieldclimb-crypto-payment-gateway'),
                 $paid_value_coin,
                 $paid_coin_name,
@@ -472,8 +468,8 @@ function shieldclimbcryptogateway_shibbep20_change_order_status_callback($reques
         }
 
         $order->payment_complete();
-        /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
         $order->add_order_note(sprintf(
+            /* translators: 1: Paid value in coin, 2: Paid coin name, 3: Transaction ID */
             __('[Payment completed] Customer sent %1$s %2$s TXID:%3$s', 'shieldclimb-crypto-payment-gateway'),
             $paid_value_coin,
             $paid_coin_name,
