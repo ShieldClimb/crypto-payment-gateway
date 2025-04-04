@@ -1,7 +1,7 @@
 === ShieldClimb – Crypto Payment Gateway for WooCommerce ===
 Contributors: shieldclimb
 Donate link: https://shieldclimb.com/
-Tags: woocommerce, crypto, payment, gateway, instant payouts
+Tags: woocommerce, crypto, payment, cryptocurrency, payment gateway
 Requires at least: 5.8
 Tested up to: 6.7
 Stable tag: 1.0.0
