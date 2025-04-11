@@ -3,11 +3,11 @@ Contributors: shieldclimb
 Donate link: https://shieldclimb.com/
 Tags: woocommerce, crypto, payment, cryptocurrency, payment gateway
 Requires at least: 5.8
-Tested up to: 6.7
-Stable tag: 1.0.0
+Tested up to: 6.8
+Stable tag: 1.0.1
 Requires PHP: 7.2
 WC requires at least: 5.8
-WC tested up to: 9.7.1
+WC tested up to: 9.8.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,7 +28,7 @@ Why choose ShieldClimb’s Crypto Payment Gateway?
 * Seamless multi-network and multi-currency support – accept crypto payments across multiple blockchains with ease.
 * Privacy & Security – Unique wallet addresses for every order enhance anonymity.
 
-=== Features ===
+== Features ==
 
 * Auto-Hide Coins Below Minimum – Coins that do not meet the minimum threshold will be automatically removed from checkout.
 * Automatic Payment Detection & Order Processing – Orders are marked as paid automatically.
@@ -40,6 +40,8 @@ Why choose ShieldClimb’s Crypto Payment Gateway?
 * Low Fees – 2% flat rate + blockchain transaction fees.
 * Track Transactions in WP-Admin – View TXIDs and payouts within WooCommerce.
 * Borderless Payments – Accept crypto globally without restrictions.
+
+== ShieldClimb API - Third-Party Service Documentation ==
 
 The plugin and offered service through [shieldclimb.com Crypto Payment Gateway API](https://shieldclimb.com/) is subject to the [service terms](https://shieldclimb.com/terms-of-service/) and [Privacy Policy](https://shieldclimb.com/privacy-policy/).
 
@@ -67,10 +69,10 @@ This plugin integrates the [Frankfurter API](https://frankfurter.dev/) to fetch 
 
 == Installation ==
 
-* Install and activate the plugin.
-* Navigate to WooCommerce > Settings > Payments > ShieldClimb Crypto Payment Gateway.
-* Enable crypto payments and enter your wallet address.
-* Save settings and you will be ready to accept cryptocurrencies directly on your website.
+1. Install and activate the plugin.
+2. Navigate to WooCommerce > Settings > Payments > ShieldClimb Crypto Payment Gateway.
+3. Enable crypto payments and enter your wallet address.
+4. Save settings and you will be ready to accept cryptocurrencies directly on your website.
 
 = Minimum Requirements =
 
@@ -109,6 +111,12 @@ For further assistance, contact our [support team](https://shieldclimb.com/conta
 2. screenshot-2.png
 
 == Changelog ==
+
+= V1.0.1 =
+
+* **Updated**: Tested up to WordPress 6.8 and WooCommerce 9.8.1
+* **Improved**: Code organization and optimization.
+* **Updated**: Heading format corrections.
 
 = V1.0.0 =
 

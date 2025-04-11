@@ -64,6 +64,11 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 
 ## 📜 Changelog
 
+### v1.0.1
+- Updated: Tested up to WordPress 6.8 and WooCommerce 9.8.1
+- Improved: Code organization and optimization.
+- Updated: Heading format corrections.
+
 ### v1.0.0
 - Initial release
 
