@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-dogebep20';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/dogebep20.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Dogecoin bep20 | Min 16.7doge | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Dogecoin bep20 | Min 13.3doge | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept Dogecoin bep20 payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 

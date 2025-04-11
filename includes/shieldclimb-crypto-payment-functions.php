@@ -36,25 +36,25 @@ function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
 
     // Define minimum crypto amounts and their CoinGecko IDs
     $gateway_minimums = array(
-        'shieldclimb-crypto-payment-gateway-adabep20' => array('min' => 1.67, 'coin_id' => 'cardano'),
-        'shieldclimb-crypto-payment-gateway-bch' => array('min' => 0.000835, 'coin_id' => 'bitcoin-cash'),
-        'shieldclimb-crypto-payment-gateway-bnbbep20' => array('min' => 0.00167, 'coin_id' => 'binancecoin'),
-        'shieldclimb-crypto-payment-gateway-btc' => array('min' => 0.0001336, 'coin_id' => 'bitcoin'),
-        'shieldclimb-crypto-payment-gateway-cakebep20' => array('min' => 0.167, 'coin_id' => 'pancakeswap-token'),    
-        'shieldclimb-crypto-payment-gateway-daibep20' => array('min' => 1.67, 'coin_id' => 'dai'),
-        'shieldclimb-crypto-payment-gateway-doge' => array('min' => 16.7, 'coin_id' => 'dogecoin'),
-        'shieldclimb-crypto-payment-gateway-dogebep20' => array('min' => 16.7, 'coin_id' => 'dogecoin'),
-        'shieldclimb-crypto-payment-gateway-eth' => array('min' => 0.007515, 'coin_id' => 'ethereum'),
-        'shieldclimb-crypto-payment-gateway-ethbep20' => array('min' => 0.00167, 'coin_id' => 'ethereum'),
-        'shieldclimb-crypto-payment-gateway-ethoptimism' => array('min' => 0.00167, 'coin_id' => 'ethereum'),
-        'shieldclimb-crypto-payment-gateway-injbep20' => array('min' => 0.0835, 'coin_id' => 'injective-protocol'),
-        'shieldclimb-crypto-payment-gateway-ltc' => array('min' => 0.00334, 'coin_id' => 'litecoin'),
-        'shieldclimb-crypto-payment-gateway-ltcbep20' => array('min' => 0.00334, 'coin_id' => 'litecoin'),
-        'shieldclimb-crypto-payment-gateway-oneinchbep20' => array('min' => 1.67, 'coin_id' => '1inch'),
-        'shieldclimb-crypto-payment-gateway-shibbep20' => array('min' => 66800, 'coin_id' => 'shiba-inu'),
-        'shieldclimb-crypto-payment-gateway-usdcbep20' => array('min' => 1.67, 'coin_id' => 'usd-coin'),
-        'shieldclimb-crypto-payment-gateway-usdtbep20' => array('min' => 1.67, 'coin_id' => 'tether'),
-        'shieldclimb-crypto-payment-gateway-xrpbep20' => array('min' => 3.34, 'coin_id' => 'ripple')
+        'shieldclimb-crypto-payment-gateway-adabep20' => array('min' => 1.33, 'coin_id' => 'cardano'),
+        'shieldclimb-crypto-payment-gateway-bch' => array('min' => 0.000665, 'coin_id' => 'bitcoin-cash'),
+        'shieldclimb-crypto-payment-gateway-bnbbep20' => array('min' => 0.00133, 'coin_id' => 'binancecoin'),
+        'shieldclimb-crypto-payment-gateway-btc' => array('min' => 0.0001064, 'coin_id' => 'bitcoin'),
+        'shieldclimb-crypto-payment-gateway-cakebep20' => array('min' => 0.133, 'coin_id' => 'pancakeswap-token'),    
+        'shieldclimb-crypto-payment-gateway-daibep20' => array('min' => 1.33, 'coin_id' => 'dai'),
+        'shieldclimb-crypto-payment-gateway-doge' => array('min' => 13.3, 'coin_id' => 'dogecoin'),
+        'shieldclimb-crypto-payment-gateway-dogebep20' => array('min' => 13.3, 'coin_id' => 'dogecoin'),
+        'shieldclimb-crypto-payment-gateway-eth' => array('min' => 0.005985, 'coin_id' => 'ethereum'),
+        'shieldclimb-crypto-payment-gateway-ethbep20' => array('min' => 0.00133, 'coin_id' => 'ethereum'),
+        'shieldclimb-crypto-payment-gateway-ethoptimism' => array('min' => 0.000133, 'coin_id' => 'ethereum'),
+        'shieldclimb-crypto-payment-gateway-injbep20' => array('min' => 0.0665, 'coin_id' => 'injective-protocol'),
+        'shieldclimb-crypto-payment-gateway-ltc' => array('min' => 0.00266, 'coin_id' => 'litecoin'),
+        'shieldclimb-crypto-payment-gateway-ltcbep20' => array('min' => 0.00266, 'coin_id' => 'litecoin'),
+        'shieldclimb-crypto-payment-gateway-oneinchbep20' => array('min' => 1.33, 'coin_id' => '1inch'),
+        'shieldclimb-crypto-payment-gateway-shibbep20' => array('min' => 53200, 'coin_id' => 'shiba-inu'),
+        'shieldclimb-crypto-payment-gateway-usdcbep20' => array('min' => 1.33, 'coin_id' => 'usd-coin'),
+        'shieldclimb-crypto-payment-gateway-usdtbep20' => array('min' => 1.33, 'coin_id' => 'tether'),
+        'shieldclimb-crypto-payment-gateway-xrpbep20' => array('min' => 2.66, 'coin_id' => 'ripple')
     );
 
     // Get exchange rates with caching

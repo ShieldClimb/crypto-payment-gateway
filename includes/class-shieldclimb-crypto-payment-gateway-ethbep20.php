@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-ethbep20';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/ethbep20.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (ETH bep20 | Min 0.00167eth | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (ETH bep20 | Min 0.00133eth | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept ETH bep20 payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 

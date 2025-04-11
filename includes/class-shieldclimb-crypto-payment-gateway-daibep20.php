@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-daibep20';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/daibep20.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Dai Token bep20 | Min 1.67dai | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Dai Token bep20 | Min 1.33dai | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept Dai Token bep20 payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 

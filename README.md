@@ -64,6 +64,9 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 
 ## 📜 Changelog
 
+### v1.0.2
+- Updated: Minimum order amount reduced for all crypto
+
 ### v1.0.1
 - Updated: Tested up to WordPress 6.8 and WooCommerce 9.8.1
 - Improved: Code organization and optimization.

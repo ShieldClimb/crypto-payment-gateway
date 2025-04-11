@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-shibbep20';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/shibbep20.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (SHIBA INU bep20 | Min 66800shib | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (SHIBA INU bep20 | Min 53200shib | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept SHIBA INU bep20 payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 

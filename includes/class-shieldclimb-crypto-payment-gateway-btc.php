@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-btc';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/btc.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Bitcoin | Min 0.0001336btc | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (Bitcoin | Min 0.0001064btc | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept Bitcoin payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 

@@ -20,7 +20,7 @@ protected $icon_url;
     public function __construct() {
         $this->id                 = 'shieldclimb-crypto-payment-gateway-oneinchbep20';
         $this->icon = esc_url(plugin_dir_url(__DIR__) . 'static/oneinchbep20.png');
-        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (1INCH Token bep20 | Min 1.67 1inch | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
+        $this->method_title       = esc_html__('ShieldClimb – Crypto Payment Gateway (1INCH Token bep20 | Min 1.33 1inch | Auto-hide if below min)', 'shieldclimb-crypto-payment-gateway'); // Escaping title
         $this->method_description = esc_html__('Accept 1INCH Token bep20 payments directly to your wallet—no KYB or KYC required.', 'shieldclimb-crypto-payment-gateway'); // Escaping description
         $this->has_fields         = false;
 
