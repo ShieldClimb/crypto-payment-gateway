@@ -1,6 +1,6 @@
 <?php
-add_filter('woocommerce_available_payment_gateways', 'shieldclimbgateway_hide_crypto_payment_methods');
-function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
+add_filter('woocommerce_available_payment_gateways', 'shieldclimbcryptogateway_hide_crypto_payment_methods');
+function shieldclimbcryptogateway_hide_crypto_payment_methods($available_gateways) {
     // Run only on checkout or order pay page
     if (!(is_checkout() || is_checkout_pay_page())) {
         return $available_gateways;
@@ -31,7 +31,7 @@ function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
 
     // Convert cart total to USD if necessary
     if ($currency !== 'USD') {
-        $cart_total = convert_currency_to_usd($cart_total, $currency);
+        $cart_total = shieldclimbcryptogateway_convert_currency_to_usd($cart_total, $currency);
     }
 
     // Define minimum crypto amounts and their CoinGecko IDs
@@ -59,7 +59,7 @@ function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
 
     // Get exchange rates with caching
     $coin_ids = array_unique(array_column($gateway_minimums, 'coin_id'));
-    $exchange_rates = get_crypto_exchange_rates($coin_ids);
+    $exchange_rates = shieldclimbcryptogateway_get_exchange_rates($coin_ids);
 
     foreach ($gateway_minimums as $gateway_id => $settings) {
         if (!isset($available_gateways[$gateway_id])) continue;
@@ -79,8 +79,8 @@ function shieldclimbgateway_hide_crypto_payment_methods($available_gateways) {
     return $available_gateways;
 }
 
-function convert_currency_to_usd($amount, $currency) {
-    $transient_key = 'currency_rate_' . $currency;
+function shieldclimbcryptogateway_convert_currency_to_usd($amount, $currency) {
+    $transient_key = 'shieldclimbcryptogateway_currency_rate_' . $currency;
     $rate = get_transient($transient_key);
 
     if (false === $rate) {
@@ -97,8 +97,8 @@ function convert_currency_to_usd($amount, $currency) {
     return ($rate > 0) ? $amount * $rate : $amount;
 }
 
-function get_crypto_exchange_rates($coin_ids) {
-    $transient_key = 'crypto_rates_' . md5(implode(',', $coin_ids));
+function shieldclimbcryptogateway_get_exchange_rates($coin_ids) {
+    $transient_key = 'shieldclimbcryptogateway_crypto_rates_' . md5(implode(',', $coin_ids));
     $rates = get_transient($transient_key);
 
     if (false === $rates) {

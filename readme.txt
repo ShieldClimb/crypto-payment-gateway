@@ -4,7 +4,7 @@ Donate link: https://shieldclimb.com/
 Tags: woocommerce, crypto, payment, cryptocurrency, payment gateway
 Requires at least: 5.8
 Tested up to: 6.8
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 7.2
 WC requires at least: 5.8
 WC tested up to: 9.8.1
@@ -111,6 +111,10 @@ For further assistance, contact our [support team](https://shieldclimb.com/conta
 2. screenshot-2.png
 
 == Changelog ==
+
+= V1.0.3 =
+
+* **Updated**: Prefixed all functions, classes, transients, and options to prevent conflicts and follow WordPress standards.
 
 = V1.0.2 =
 
