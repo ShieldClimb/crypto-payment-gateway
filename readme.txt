@@ -4,7 +4,7 @@ Donate link: https://shieldclimb.com/
 Tags: woocommerce, crypto, payment, cryptocurrency, payment gateway
 Requires at least: 5.8
 Tested up to: 6.8
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 7.2
 WC requires at least: 5.8
 WC tested up to: 9.8.1
@@ -41,6 +41,9 @@ Why choose ShieldClimb’s Crypto Payment Gateway?
 * Track Transactions in WP-Admin – View TXIDs and payouts within WooCommerce.
 * Borderless Payments – Accept crypto globally without restrictions.
 
+📺 **Watch the full install and setup tutorial here:**  
+[youtube https://www.youtube.com/watch?v=M_QZMqRItxM]
+
 == ShieldClimb API - Third-Party Service Documentation ==
 
 The plugin and offered service through [shieldclimb.com Crypto Payment Gateway API](https://shieldclimb.com/) is subject to the [service terms](https://shieldclimb.com/terms-of-service/) and [Privacy Policy](https://shieldclimb.com/privacy-policy/).
@@ -73,6 +76,9 @@ This plugin integrates the [Frankfurter API](https://frankfurter.dev/) to fetch 
 2. Navigate to WooCommerce > Settings > Payments > ShieldClimb Crypto Payment Gateway.
 3. Enable crypto payments and enter your wallet address.
 4. Save settings and you will be ready to accept cryptocurrencies directly on your website.
+
+📺 **Watch the full install and setup tutorial here:**  
+[youtube https://www.youtube.com/watch?v=M_QZMqRItxM]
 
 = Minimum Requirements =
 
@@ -111,6 +117,10 @@ For further assistance, contact our [support team](https://shieldclimb.com/conta
 2. screenshot-2.png
 
 == Changelog ==
+
+= V1.0.4 =
+
+* **Updated**: Readme file to include tutorial video link.
 
 = V1.0.3 =
 

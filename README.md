@@ -19,6 +19,10 @@ ShieldClimb's **[Crypto Payment Gateway](https://shieldclimb.com/crypto-payment-
 4. **Customize Display**: Adjust labels and descriptions for payment methods.
 5. **Save & Accept Payments**: Start processing payments instantly!
 
+## 📺 Watch the Full Install and Setup Tutorial Here:
+
+[![How to Install and Setup the Plugin](https://img.youtube.com/vi/M_QZMqRItxM/0.jpg)](https://www.youtube.com/watch?v=M_QZMqRItxM)
+
 ## 🔥 Features
 
 - **[Auto-Hide Coins Below Minimum](https://shieldclimb.com/crypto-payment-gateway)**: Coins that do not meet the minimum threshold will be automatically removed from checkout.
@@ -63,6 +67,10 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 ![Checkout Example](https://shieldclimb.com/wp-content/uploads/2025/03/Screenshot-2-3.png)
 
 ## 📜 Changelog
+
+### V1.0.4
+
+- Updated: Readme file to include tutorial video link.
 
 ### v1.0.3
 - Updated: Prefixed all functions, classes, transients, and options to prevent conflicts and follow WordPress standards.

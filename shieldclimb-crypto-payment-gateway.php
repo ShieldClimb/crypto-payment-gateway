@@ -3,7 +3,7 @@
  * Plugin Name: ShieldClimb – Crypto Payment Gateway for WooCommerce
  * Plugin URI: https://shieldclimb.com/crypto-payment-gateway/
  * Description: Crypto Payment Gateway with instant payouts—accept cryptocurrency with no registration, no KYC, and no delays. Your crypto, your control (For setting up go to > Woocommerce > Setting > Payments tab).
- * Version: 1.0.3
+ * Version: 1.0.4
  * Requires Plugins: woocommerce
  * Requires at least: 5.8
  * Tested up to: 6.8
