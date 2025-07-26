@@ -100,7 +100,7 @@ Released under **GPLv3**. See [LICENSE](http://www.gnu.org/licenses/gpl-3.0.html
 
 ---
 ### 🌐 Helpful Links
-- **[ShieldClimb High-Risk Card Payment Gateway](https://shieldclimb.com/high-risk-card-payment-gateway/)** – Learn more about our secure card processing.
+- **[ShieldClimb High-Risk Card Payment Gateway](https://shieldclimb.com/high-risk-payment-gateway/)** – Learn more about our secure card processing.
 - **[Fix WooCommerce No Payment Methods Available Error](https://shieldclimb.com/blog/fix-no-payment-methods-available-error/)** – Troubleshooting guide.
 - **[ShieldClimb Terms of Service](https://shieldclimb.com/terms-of-service/)** – Read our service policies.
 - **[Privacy Policy](https://shieldclimb.com/privacy-policy/)** – How we handle user data.
