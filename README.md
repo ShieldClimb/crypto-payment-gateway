@@ -2,14 +2,14 @@
 
 <p align="left">
   <img src="https://shieldclimb.com/wp-content/uploads/2025/03/ShieldClimb-logo-with-name-500x200-1.png" alt="Brand Logo" width="120"><br>
-  <img src="https://shieldclimb.com/wp-content/uploads/2025/03/crypto-payment-gateway.png" alt="Product Logo" width="120">
+  <img src="https://shieldclimb.com/wp-content/uploads/2025/03/shieldclimb-crypto-payment-gateway.png" alt="Product Logo" width="120">
 </p>
 
 [![WooCommerce Compatibility](https://img.shields.io/badge/WooCommerce-5.8+-blue)](https://woocommerce.com/)
 [![License](https://img.shields.io/badge/License-GPLv3-blue)](http://www.gnu.org/licenses/gpl-3.0.html)
 [![PHP Version](https://img.shields.io/badge/PHP-7.2+-blue)](https://www.php.net/)
 
-ShieldClimb's **[Crypto Payment Gateway](https://shieldclimb.com/crypto-payment-gateway)** with instant payouts—accept cryptocurrency with no registration, no KYC, and no delays. Your crypto, your control.
+ShieldClimb's **[Crypto Payment Gateway](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)** with instant payouts—accept cryptocurrency with no registration, no KYC, and no delays. Your crypto, your control.
 
 ## 🚀 Quick Start
 
@@ -25,16 +25,16 @@ ShieldClimb's **[Crypto Payment Gateway](https://shieldclimb.com/crypto-payment-
 
 ## 🔥 Features
 
-- **[Auto-Hide Coins Below Minimum](https://shieldclimb.com/crypto-payment-gateway)**: Coins that do not meet the minimum threshold will be automatically removed from checkout.
-- **[Automatic Payment Detection & Order Processing](https://shieldclimb.com/crypto-payment-gateway)**: Orders are marked as paid automatically.
-- **[Instant Access & Approval](https://shieldclimb.com/crypto-payment-gateway)**: No sign-ups, no verifications.
-- **[No Holding of Funds](https://shieldclimb.com/crypto-payment-gateway)**: Payments are forwarded instantly to your wallet.
-- **[Unique Wallet Address per Order](https://shieldclimb.com/crypto-payment-gateway)**: Enhances payment tracking and privacy.
-- **[QR Code Integration](https://shieldclimb.com/crypto-payment-gateway)**: Customers can easily scan and pay.
-- **[Intelligent Misdirected Payment Handling](https://shieldclimb.com/crypto-payment-gateway)**: If a customer sends funds via an incorrect network/token, the system still forwards them to you for supported cryptocurrencies.
-- **[Low Fees](https://shieldclimb.com/crypto-payment-gateway)**: 2% flat rate + blockchain transaction fees.
-- **[Track Transactions in WP-Admin](https://shieldclimb.com/crypto-payment-gateway)**: View TXIDs and payouts within WooCommerce.
-- **[Borderless Payments](https://shieldclimb.com/crypto-payment-gateway)**: Accept crypto globally without restrictions.
+- **[Auto-Hide Coins Below Minimum](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Coins that do not meet the minimum threshold will be automatically removed from checkout.
+- **[Automatic Payment Detection & Order Processing](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Orders are marked as paid automatically.
+- **[Instant Access & Approval](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: No sign-ups, no verifications.
+- **[No Holding of Funds](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Payments are forwarded instantly to your wallet.
+- **[Unique Wallet Address per Order](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Enhances payment tracking and privacy.
+- **[QR Code Integration](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Customers can easily scan and pay.
+- **[Intelligent Misdirected Payment Handling](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: If a customer sends funds via an incorrect network/token, the system still forwards them to you for supported cryptocurrencies.
+- **[Low Fees](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: 1.5% flat rate + blockchain transaction fees.
+- **[Track Transactions in WP-Admin](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: View TXIDs and payouts within WooCommerce.
+- **[Borderless Payments](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)**: Accept crypto globally without restrictions.
 
 ## 🔒 Security & Compliance
 
@@ -68,6 +68,13 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 
 ## 📜 Changelog
 
+### V1.0.5
+
+- Updated: Tested up to WordPress 6.9 & WooCommerce 10.4.2
+- New: Added new coins
+- New: Added hosted checkout with multiple coins on one page with page customization option & custom domain name option
+- Fixed: Bug fixed
+
 ### V1.0.4
 
 - Updated: Readme file to include tutorial video link.
@@ -90,9 +97,9 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 
 We welcome contributions! If you'd like to improve this plugin, feel free to **submit a pull request**.
 
-- **[GitHub Repository](https://github.com/shieldclimb/crypto-payment-gateway/)** – Submit issues or PRs.
+- **[GitHub Repository](https://github.com/shieldclimb/shieldclimb-crypto-payment-gateway/)** – Submit issues or PRs.
 - **[Support Forum](https://shieldclimb.com/contact-us/)** – Get help with setup or troubleshooting.
-- **[Documentation](https://shieldclimb.com/crypto-payment-gateway)** – Read detailed guides.
+- **[Documentation](https://shieldclimb.com/shieldclimb-crypto-payment-gateway)** – Read detailed guides.
 
 ## 📜 License
 
