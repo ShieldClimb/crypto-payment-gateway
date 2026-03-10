@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_btc_conversion_resp && isset($shieldclimbcryptogat
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_btc_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/btc/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_btc_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/btc/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_btc_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_btc_revfeesest_conversion_resp && isset($shieldcli
 
 		}
 		
-$shieldclimbcryptogateway_btc_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/btc/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_btc_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/btc/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_btc_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;

@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_linkoptimism_conversion_resp && isset($shieldclimb
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_linkoptimism_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/optimism/link/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_linkoptimism_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/optimism/link/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_linkoptimism_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_linkoptimism_revfeesest_conversion_resp && isset($
 
 		}
 		
-$shieldclimbcryptogateway_linkoptimism_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/optimism/link/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_linkoptimism_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/optimism/link/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_linkoptimism_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;

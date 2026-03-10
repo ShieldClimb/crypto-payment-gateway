@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_usdcearbitrum_conversion_resp && isset($shieldclim
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_usdcearbitrum_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/arbitrum/usdc.e/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_usdcearbitrum_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/arbitrum/usdc.e/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_usdcearbitrum_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_usdcearbitrum_revfeesest_conversion_resp && isset(
 
 		}
 		
-$shieldclimbcryptogateway_usdcearbitrum_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/arbitrum/usdc.e/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_usdcearbitrum_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/arbitrum/usdc.e/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_usdcearbitrum_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;

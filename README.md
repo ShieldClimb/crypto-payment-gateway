@@ -68,6 +68,11 @@ Follow the guide to **[Fix WooCommerce There Are No Payment Methods Available Er
 
 ## 📜 Changelog
 
+###  V1.0.6 
+
+- Updated: Tested up to WooCommerce 10.5.3
+- Fixed: Fixed an issue affecting certain transactions
+
 ### V1.0.5
 
 - Updated: Tested up to WordPress 6.9 & WooCommerce 10.4.2

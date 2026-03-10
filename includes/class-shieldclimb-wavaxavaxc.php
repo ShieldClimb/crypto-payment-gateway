@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_wavaxavaxc_conversion_resp && isset($shieldclimbcr
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_wavaxavaxc_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/avax-c/wavax/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_wavaxavaxc_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/avax-c/wavax/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_wavaxavaxc_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_wavaxavaxc_revfeesest_conversion_resp && isset($sh
 
 		}
 		
-$shieldclimbcryptogateway_wavaxavaxc_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/avax-c/wavax/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_wavaxavaxc_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/avax-c/wavax/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_wavaxavaxc_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;

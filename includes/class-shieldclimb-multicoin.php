@@ -430,7 +430,7 @@ $shieldclimbcryptogateway_multicoincoin_label = str_replace( '_', '/', strtouppe
     if ( $order && !in_array($order->get_status(), ['processing', 'completed'], true) && 'shieldclimb-multicoin' === $order->get_payment_method() ) {
 	$shieldclimbcryptogateway_multicoincurrency      = $order->get_meta( 'shieldclimb_multicoin_currency', true );	
  // Fetch coin pricing from ShieldClimb
-    $shieldclimbcryptogateway_multicoininfo_url = 'https://api.shieldclimb.com/crypto/' . strtolower($shieldclimbcryptogateway_multicoincoin_label) . '/info.php';
+    $shieldclimbcryptogateway_multicoininfo_url = 'https://api.shieldclimb.com/crypto/' . strtolower($shieldclimbcryptogateway_multicoincoin_label) . '/aff-info.php';
     $shieldclimbcryptogateway_multicoinresponse = wp_remote_get( $shieldclimbcryptogateway_multicoininfo_url, array( 'timeout' => 30 ) );
 
     if ( is_wp_error( $shieldclimbcryptogateway_multicoinresponse ) ) {
@@ -469,7 +469,7 @@ $shieldclimbcryptogateway_multicoincoin_label = str_replace( '_', '/', strtouppe
 if ($shieldclimbcryptogateway_multicoin_fee_read_settings === '1') {
 			
 		 // Fetch coin fees from ShieldClimb
-    $shieldclimbcryptogateway_multicoinfeesinfo_url = 'https://api.shieldclimb.com/crypto/' . strtolower($shieldclimbcryptogateway_multicoincoin_label) . '/fees.php';
+    $shieldclimbcryptogateway_multicoinfeesinfo_url = 'https://api.shieldclimb.com/crypto/' . strtolower($shieldclimbcryptogateway_multicoincoin_label) . '/aff-fees.php';
     $shieldclimbcryptogateway_multicoinfeesresponse = wp_remote_get( $shieldclimbcryptogateway_multicoinfeesinfo_url, array( 'timeout' => 30 ) );
 	
 	

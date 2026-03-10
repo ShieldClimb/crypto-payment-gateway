@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_wxrperc20_conversion_resp && isset($shieldclimbcry
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_wxrperc20_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/erc20/wxrp/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_wxrperc20_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/erc20/wxrp/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_wxrperc20_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_wxrperc20_revfeesest_conversion_resp && isset($shi
 
 		}
 		
-$shieldclimbcryptogateway_wxrperc20_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/erc20/wxrp/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_wxrperc20_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/erc20/wxrp/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_wxrperc20_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;

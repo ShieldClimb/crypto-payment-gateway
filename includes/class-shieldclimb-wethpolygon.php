@@ -152,7 +152,7 @@ if ($shieldclimbcryptogateway_wethpolygon_conversion_resp && isset($shieldclimbc
 			
 			// Get the estimated feed for our crypto coin in USD fiat currency
 			
-		$shieldclimbcryptogateway_wethpolygon_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/polygon/weth/fees.php', array('timeout' => 30));
+		$shieldclimbcryptogateway_wethpolygon_feesest_response = wp_remote_get('https://api.shieldclimb.com/crypto/polygon/weth/aff-fees.php', array('timeout' => 30));
 
 if (is_wp_error($shieldclimbcryptogateway_wethpolygon_feesest_response)) {
     // Handle error
@@ -204,7 +204,7 @@ if ($shieldclimbcryptogateway_wethpolygon_revfeesest_conversion_resp && isset($s
 
 		}
 		
-$shieldclimbcryptogateway_wethpolygon_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/polygon/weth/info.php', array('timeout' => 30));
+$shieldclimbcryptogateway_wethpolygon_response_minimum = wp_remote_get('https://api.shieldclimb.com/crypto/polygon/weth/aff-info.php', array('timeout' => 30));
 if (is_wp_error($shieldclimbcryptogateway_wethpolygon_response_minimum)) {
     shieldclimbcryptogateway_add_notice(__('Payment error:', 'shieldclimb-crypto-payment-gateway') . __('Payment could not be processed due to failed minimum retrieval process, please try again', 'shieldclimb-crypto-payment-gateway'), 'error');
     return null;
