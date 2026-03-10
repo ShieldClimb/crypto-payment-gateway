@@ -85,7 +85,6 @@ function shieldclimbcryptogateway_enqueue_styles() {
 }
 add_action('wp_enqueue_scripts', 'shieldclimbcryptogateway_enqueue_styles');
 
-		include_once(plugin_dir_path(__FILE__) . 'includes/class-shieldclimb-multicoin.php'); // Include the payment gateway class
 		include_once(plugin_dir_path(__FILE__) . 'includes/class-shieldclimb-btc.php'); // Include the payment gateway class
 		include_once(plugin_dir_path(__FILE__) . 'includes/class-shieldclimb-bch.php'); // Include the payment gateway class
 		include_once(plugin_dir_path(__FILE__) . 'includes/class-shieldclimb-ltc.php'); // Include the payment gateway class
